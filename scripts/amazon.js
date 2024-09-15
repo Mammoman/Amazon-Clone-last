@@ -1,3 +1,5 @@
+   import {cart} from '../data/cart';
+   
    let productsHTML ='';
 
   products.forEach ((product) => {
@@ -25,7 +27,7 @@
           </div>
 
           <div class="product-quantity-container">
-            <select>
+            <select class="js-quantity-selector-${product.id}">
               <option selected value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -73,13 +75,22 @@ document.querySelector('.js-products-grid')
             matchingITEM = item;
           }
        });
-      
+
+     
+       const quantitySelector = document.querySelector
+       (`.js-quantity-selector-${productId}`)
+
+       const quantity = Number(quantitySelector.value);
+
+
         if (matchingITEM) {
             matchingITEM.quantity += 1;
+            matchingITEM.quantity +=  quantity
         } else {
             cart.push({
                 productId: productId,
-                quantity:1
+                quantity:1,
+                quantity:  quantity
              })
         }
 
@@ -93,6 +104,9 @@ document.querySelector('.js-products-grid')
           .innerHTML = cartQuantity;
 
         console.log(cart);
+
+       
+          })
       });
-    });
+  
     
