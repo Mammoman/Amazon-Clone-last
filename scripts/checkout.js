@@ -113,7 +113,7 @@ document.querySelector('.js-order-summary')
      const container = document.querySelector
       (`.js-cart-container-${productId}`
       );
-      container.remove();
+      container.remove( );
     });
 });
   
