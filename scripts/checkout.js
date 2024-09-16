@@ -116,5 +116,16 @@ document.querySelector('.js-order-summary')
       container.remove( );
     });
 });
+
+function updateCartQuantity () {
+    let cartQuantity = 0;
+
+    cart.forEach((cartItem) => {
+        cartQuantity += cartItem.quantity;
+    });
+
+    document.querySelector('.js-checkout-cart-update')
+      .innerHTML = cartQuantity;
+  };
   
 
