@@ -2,6 +2,12 @@ import {cart, deleteFromCart} from '../data/cart.js';
 import {products} from '../data/products.js';
 import {converter} from './utils/money.js';
 
+
+const today = dayjs(); 
+const deliveryDate = today.add(7, 'days');
+console.log(deliveryDate.format('dddd, MMMM D'));
+
+
 let cartSummaryHTML ='';
 
 cart.forEach((cartItem) => {
@@ -117,15 +123,7 @@ document.querySelector('.js-order-summary')
     });
 });
 
-function updateCartQuantity () {
-    let cartQuantity = 0;
 
-    cart.forEach((cartItem) => {
-        cartQuantity += cartItem.quantity;
-    });
 
-    document.querySelector('.js-checkout-cart-update')
-      .innerHTML = cartQuantity;
-  };
   
 
